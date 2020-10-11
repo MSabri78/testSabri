@@ -1,0 +1,153 @@
+---
+title: "Home"
+author: "By WHO - Iraq"
+date: "11/10/2020"
+output: html_document
+---
+
+```{r echo=FALSE}
+library(RtD3)
+Iraq <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Iraq\\summary\\",
+  region_var = "country"),
+  regions = "Iraq")
+
+Baghdad <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Baghdad\\summary\\",
+  region_var = "country"),
+  regions = "Baghdad")
+
+ANBAR <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\ANBAR\\summary\\",
+  region_var = "country"),
+  regions = "ANBAR")
+
+KRG <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\KRG\\summary\\",
+  region_var = "country"),
+  regions = "KRG")
+
+MUTHANNA <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\MUTHANNA\\summary\\",
+  region_var = "country"),
+  regions = "MUTHANNA")
+
+Ninewa <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Ninewa\\summary\\",
+  region_var = "country"),
+  regions = "Ninewa")
+
+Babylon <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Babylon\\summary\\",
+  region_var = "country"),
+  regions = "Babylon")
+
+Wassit <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Wassit\\summary\\",
+  region_var = "country"),
+  regions = "Wassit")
+
+Basrah <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Basrah\\summary\\",
+  region_var = "country"),
+  regions = "Basrah")
+
+Dahuk <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Dahuk\\summary\\",
+  region_var = "country"),
+  regions = "Dahuk")
+
+Kirkuk <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Kirkuk\\summary\\",
+  region_var = "country"),
+  regions = "Kirkuk")
+
+Diyala <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Diyala\\summary\\",
+  region_var = "country"),
+  regions = "Diyala")
+
+Diwaniya <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Diwaniya\\summary\\",
+  region_var = "country"),
+  regions = "Diwaniya")
+
+Erbil <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Erbil\\summary\\",
+  region_var = "country"),
+  regions = "Erbil")
+
+Kerbala <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Kerbala\\summary\\",
+  region_var = "country"),
+  regions = "Kerbala")
+
+Missan <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Missan\\summary\\",
+  region_var = "country"),
+  regions = "Missan")
+
+Najaf <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Najaf\\summary\\",
+  region_var = "country"),
+  regions = "Najaf")
+
+Salah_al_din <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Salah_al_din\\summary\\",
+  region_var = "country"),
+  regions = "Salah_al_din")
+
+Sulaymaniyah <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Sulaymaniyah\\summary\\",
+  region_var = "country"),
+  regions = "Sulaymaniyah")
+
+Thi_Qar <- list("Cases" = readInEpiNow2(
+  path = "C:\\IraqRT\\regional\\cases\\Thi_Qar\\summary\\",
+  region_var = "country"),
+  regions = "Thi_Qar")
+
+
+out1 <- list()
+out1$Cases <- joinRtData(Iraq$Cases, Baghdad$Cases)
+out2 <- list()
+out2$Cases <-joinRtData(out1$Cases, ANBAR$Cases)
+out3 <- list()
+out3$Cases <- joinRtData(out2$Cases, KRG$Cases)
+out4 <- list()
+out4$Cases <- joinRtData(out3$Cases, MUTHANNA$Cases)
+out5 <- list()
+out5$Cases <- joinRtData(out4$Cases, Ninewa$Cases)
+out6 <- list()
+out6$Cases <- joinRtData(out5$Cases, Babylon$Cases)
+out7 <- list()
+out7$Cases <- joinRtData(out6$Cases, Wassit$Cases)
+out8 <- list()
+out8$Cases <- joinRtData(out7$Cases, Dahuk$Cases)
+out9 <- list()
+out9$Cases <- joinRtData(out8$Cases, Kirkuk$Cases)
+out10 <- list()
+out10$Cases <- joinRtData(out9$Cases, Diyala$Cases)
+out11 <- list()
+out11$Cases <- joinRtData(out10$Cases, Diwaniya$Cases)
+out12 <- list()
+out12$Cases <- joinRtData(out11$Cases, Erbil$Cases)
+out13 <- list()
+out13$Cases <- joinRtData(out12$Cases, Kerbala$Cases)
+out14 <- list()
+out14$Cases <- joinRtData(out13$Cases, Missan$Cases)
+out15 <- list()
+out15$Cases <- joinRtData(out14$Cases, Najaf$Cases)
+out16 <- list()
+out16$Cases <- joinRtData(out15$Cases, Salah_al_din$Cases)
+out17 <- list()
+out17$Cases <- joinRtData(out16$Cases, Sulaymaniyah$Cases)
+out18 <- list()
+out18$Cases <- joinRtData(out17$Cases, Thi_Qar$Cases)
+
+
+
+summaryWidget(rtData = out18)
+
+```
+
